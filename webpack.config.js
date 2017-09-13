@@ -1,30 +1,32 @@
 'use strict';
 
-const HTMLPlugin = require('html-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
   output: {
     filename: 'bundle.js',
-    path: 'build'
+    path: `${__dirname}/build`
   },
   plugins: [
-    new HTMLPlugin ({
-      template: `${__dirname}/app/index.html`
-    }),
+    new HtmlPlugin({ template: `${__dirname}/app/index.html` }),
     new ExtractTextPlugin('bundle.css')
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass!'
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
       }
     ]
   }

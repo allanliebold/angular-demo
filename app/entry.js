@@ -8,7 +8,7 @@ const cowsay = require('cowsay-browser');
 const cowsayApp = angular.module('cowsayApp', []);
 
 cowsayApp.controller('CowsayController', ['$log', CowsayController]);
-(
+
 function CowsayController($log) {
   $log.debug('CowsayController');
 
@@ -38,7 +38,7 @@ function CowsayController($log) {
   }
 }
 
-cowsayAppcontroller('NavController', ['$log], NavController']);
+cowsayApp.controller('NavController', ['$log', NavController]);
 
 function NavController($log) {
   log.debug('NavController');
