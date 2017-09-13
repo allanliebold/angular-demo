@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="cowsayApp">
   <head>
-    <title></title>
+    <title>Cowsay App</title>
   </head>
   <body>
+    <header>
+      <nav ng-controller="NavController as navCtrl">
+        <ul>
+          <li ng-repeat="route in navCtrl.routes">
+            <a href="{{ route.url }}">{{route.name}}</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>
